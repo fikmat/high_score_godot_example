@@ -12,8 +12,14 @@ func go_to_next_screen() -> void:
 
 func parse_json_file(path: String) -> Dictionary:
     var file = File.new()
-    file.open(path, File.READ)
-    var data : Dictionary = parse_json(file.get_as_text())
+    var data : Dictionary
+
+    if file.file_exists(path):
+      file.open(path, File.READ)
+      data = parse_json(file.get_as_text())
+    else:
+      data = {}
+
     file.close()
 
     return data

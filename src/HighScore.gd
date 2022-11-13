@@ -12,7 +12,11 @@ var blink_timer := Timer.new()
 
 func _ready():
   if Global.scores.empty():
-    Global.scores = parse_json_file(HIGHSCORE_PATH).scores
+    var data = parse_json_file(HIGHSCORE_PATH)
+    if data.has("scores"):
+      Global.scores = data.scores
+    else:
+      Global.scores = []
 
   _update_scores(Global.player)
   _set_timers()
