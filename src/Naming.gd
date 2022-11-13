@@ -25,6 +25,8 @@ func _update_name_text(label: RichTextLabel, player: Player) -> void:
     var letter := label.bbcode_text[player.naming_position_index]
     label.bbcode_text[player.naming_position_index] = format_string % letter
 
+  label.bbcode_text = "[center]" + label.bbcode_text + "[/center]"
+
 func _unhandled_input(event):
   if event is InputEventKey:
     if event.pressed && !event.echo:
