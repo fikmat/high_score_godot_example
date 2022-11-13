@@ -1,0 +1,7 @@
+# Import cache
+.import/
+
+exports/
+!exports/.keep
+
+data/highscore.json
